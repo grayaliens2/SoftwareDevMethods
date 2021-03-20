@@ -1,0 +1,7 @@
+Ross Panning
+CSCI 3308
+Lab_3
+Notes: 
+To run my TestFile script use the file name as an argument when running Test file
+I.E.
+./TestFile.sh sample_text.txt

@@ -1,0 +1,20 @@
+GrayA@DESKTOP-0L041CN MINGW64 ~/RossPanning_section022_Labs (master|MERGING)
+$ git add .
+warning: LF will be replaced by CRLF in text.txt.
+The file will have its original line endings in your working directory
+
+GrayA@DESKTOP-0L041CN MINGW64 ~/RossPanning_section022_Labs (master|MERGING)
+$ git commit -m "This is a test commit!"
+[master c629a3c] This is a test commit!
+
+GrayA@DESKTOP-0L041CN MINGW64 ~/RossPanning_section022_Labs (master)
+$ git push
+Enumerating objects: 8, done.
+Counting objects: 100% (8/8), done.
+Delta compression using up to 12 threads
+Compressing objects: 100% (6/6), done.
+Writing objects: 100% (6/6), 687 bytes | 687.00 KiB/s, done.
+Total 6 (delta 1), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (1/1), done.
+To https://github.com/CSCI-3308-CU-Boulder/RossPanning_section022_Labs.git
+   75a74dc..c629a3c  master -> master

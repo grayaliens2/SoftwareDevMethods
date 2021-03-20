@@ -1,0 +1,190 @@
+Lab #6 Take Home
+Your name:
+
+
+---------------------------------------- Question 1 Query ---------------------------------------- 
+
+postgres=# select ship_city, count(*) as num_orders
+from orders
+group by ship_city
+order by num_orders desc
+Limit 1;
+
+---------------------------------------- Question 1 Results ---------------------------------------- 					
+
+   ship_city    | num_orders
+----------------+------------
+ Rio de Janeiro |         34
+(1 row)
+
+---------------------------------------- Question 2 Query ---------------------------------------- 
+
+postgres=# create view GRAZ as Select O.order_id, Count(E.product_id) as products
+from orders O
+join customers f
+on f.customer_id = O.customer_id
+and f.city = 'Graz'
+join order_details r on r.order_id = O.order_id
+join products E on E.product_id = r.product_id
+group by O.order_id
+order by products asc
+limit 4;
+
+postgres=# select O.order_id, E.product_name
+from GRAZ O
+join order_details q on O.order_id = q.order_id
+join products E on q.product_id = E.product_id;
+
+---------------------------------------- Question 2 Results ---------------------------------------- 					
+
+postgres=# select * from GRAZ;
+ order_id | products
+----------+----------
+    10571 |        2
+    10403 |        2
+    10402 |        2
+    10667 |        2
+
+
+ order_id |         product_name
+----------+-------------------------------
+    10571 | Tofu
+    10571 | Singaporean Hokkien Fried Mee
+    10403 | Pavlova
+    10403 | Chocolade
+    10402 | Tunnbröd
+    10402 | Vegie-spread
+    10667 | Gudbrandsdalsost
+    10667 | Flotemysost
+(8 rows)
+
+---------------------------------------- Question 3 Query ---------------------------------------- 
+
+postgres=# create view num_orders as
+select customer_id, count(order_id) as num
+from orders
+group by customer_id;
+
+postgres=# create view avgy as select AVG(num)
+from num_orders;
+
+postgres=# select E.company_name, F.num, O.avg
+from customers E, num_orders F, avgy O
+where (E.customer_id = F.customer_id) and (F.num > O.avg);
+
+---------------------------------------- Question 3 Results ---------------------------------------- 					
+
+ customer_id | num
+-------------+-----
+ TOMSP       |   6
+ LONEP       |   8
+ OLDWO       |  10
+ WARTH       |  15
+ MAGAA       |  10
+ QUEEN       |  13
+ VINET       |   5
+ ANTON       |   7
+ MORGK       |   5
+ GOURL       |   9
+ WOLZA       |   7
+ GALED       |   5
+ RATTC       |  18
+ WELLI       |   9
+ WILMK       |   7
+ FURIB       |   8
+ DUMON       |   4
+ FRANK       |  15
+ FAMIA       |   7
+ TORTU       |  10
+ FRANS       |   6
+ PRINI       |   5
+ RANCH       |   5
+ PERIC       |   6
+ CONSH       |   3
+ ISLAT       |  10
+ LEHMS       |  15
+--More--
+
+        avg
+--------------------
+ 9.3258426966292135
+(1 row)
+
+	
+         company_name         | num |        avg
+------------------------------+-----+--------------------
+ Around the Horn              |  13 | 9.3258426966292135
+ Berglunds snabbköp           |  18 | 9.3258426966292135
+ Blondesddsl père et fils     |  11 | 9.3258426966292135
+ Bon app'                     |  17 | 9.3258426966292135
+ Bottom-Dollar Markets        |  14 | 9.3258426966292135
+ B's Beverages                |  10 | 9.3258426966292135
+ Ernst Handel                 |  30 | 9.3258426966292135
+ Folk och fä HB               |  19 | 9.3258426966292135
+ Frankenversand               |  15 | 9.3258426966292135
+ Godos Cocina Típica          |  10 | 9.3258426966292135
+ Great Lakes Food Market      |  11 | 9.3258426966292135
+ Hanari Carnes                |  14 | 9.3258426966292135
+ HILARION-Abastos             |  18 | 9.3258426966292135
+ Hungry Owl All-Night Grocers |  19 | 9.3258426966292135
+ Island Trading               |  10 | 9.3258426966292135
+ Königlich Essen              |  14 | 9.3258426966292135
+ La maison d'Asie             |  14 | 9.3258426966292135
+ Lehmanns Marktstand          |  15 | 9.3258426966292135
+ LILA-Supermercado            |  14 | 9.3258426966292135
+ LINO-Delicateses             |  12 | 9.3258426966292135
+ Magazzini Alimentari Riuniti |  10 | 9.3258426966292135
+ Mère Paillarde               |  13 | 9.3258426966292135
+ Old World Delicatessen       |  10 | 9.3258426966292135
+ Ottilies Käseladen           |  10 | 9.3258426966292135
+ Piccolo und mehr             |  10 | 9.3258426966292135
+ Queen Cozinha                |  13 | 9.3258426966292135
+ QUICK-Stop                   |  28 | 9.3258426966292135
+ Rattlesnake Canyon Grocery   |  18 | 9.3258426966292135
+ Reggiani Caseifici           |  12 | 9.3258426966292135
+ Ricardo Adocicados           |  11 | 9.3258426966292135
+ Richter Supermarkt           |  10 | 9.3258426966292135
+ Save-a-lot Markets           |  31 | 9.3258426966292135
+ Suprêmes délices             |  12 | 9.3258426966292135
+ Tortuga Restaurante          |  10 | 9.3258426966292135
+ Vaffeljernet                 |  11 | 9.3258426966292135
+ Victuailles en stock         |  10 | 9.3258426966292135
+ Die Wandernde Kuh            |  10 | 9.3258426966292135
+ Wartian Herkku               |  15 | 9.3258426966292135
+ White Clover Markets         |  14 | 9.3258426966292135
+(39 rows)
+---------------------------------------- Question 4 Query ---------------------------------------- 
+
+postgres=# select O.category_name, Count(E.product_id)
+from categories O, products E
+where (O.category_id = E.category_id)
+group by O.category_id
+postgres-# having Count(E.product_id) > 10;
+
+
+---------------------------------------- Question 4 Results ---------------------------------------- 					
+
+ category_name | count
+---------------+-------
+ Condiments    |    12
+ Confections   |    13
+ Beverages     |    12
+ Seafood       |    12	
+
+---------------------------------------- Question 5 Query ---------------------------------------- 
+
+postgres=# select E.product_name, Sum(O.quantity) as Num_sold
+from products E, order_details O
+where O.product_id = E.product_id
+group by E.product_name
+order by Num_sold desc
+limit 1;
+
+---------------------------------------- Question 5 Results ---------------------------------------- 					
+
+   product_name    | num_sold
+-------------------+----------
+ Camembert Pierrot |      945
+(1 row)
+	
+

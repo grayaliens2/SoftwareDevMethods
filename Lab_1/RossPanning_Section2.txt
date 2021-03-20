@@ -1,0 +1,188 @@
+Microsoft Windows [Version 10.0.18363.1316]
+(c) 2019 Microsoft Corporation. All rights reserved.
+1------------------------------------------------------------------------------------------------------------
+C:\Users\GrayA>docker run hello-world
+Unable to find image 'hello-world:latest' locally
+latest: Pulling from library/hello-world
+0e03bdcc26d7: Pull complete                                                                                             Digest: sha256:31b9c7d48790f0d8c50ab433d9c3b7e17666d6993084c002c2ff1ca09b96391d
+Status: Downloaded newer image for hello-world:latest
+
+Hello from Docker!
+This message shows that your installation appears to be working correctly.
+
+To generate this message, Docker took the following steps:
+ 1. The Docker client contacted the Docker daemon.
+ 2. The Docker daemon pulled the "hello-world" image from the Docker Hub.
+    (amd64)
+ 3. The Docker daemon created a new container from that image which runs the
+    executable that produces the output you are currently reading.
+ 4. The Docker daemon streamed that output to the Docker client, which sent it
+    to your terminal.
+
+To try something more ambitious, you can run an Ubuntu container with:
+ $ docker run -it ubuntu bash
+
+Share images, automate workflows, and more with a free Docker ID:
+ https://hub.docker.com/
+
+For more examples and ideas, visit:
+ https://docs.docker.com/get-started/
+
+
+C:\Users\GrayA>
+C:\Users\GrayA>
+C:\Users\GrayA>
+C:\Users\GrayA>
+C:\Users\GrayA>
+C:\Users\GrayA>
+C:\Users\GrayA>
+C:\Users\GrayA>
+C:\Users\GrayA>
+C:\Users\GrayA>
+C:\Users\GrayA>
+C:\Users\GrayA>
+C:\Users\GrayA>
+C:\Users\GrayA>
+C:\Users\GrayA>
+C:\Users\GrayA>
+C:\Users\GrayA>
+C:\Users\GrayA>
+C:\Users\GrayA>
+C:\Users\GrayA>
+C:\Users\GrayA>
+C:\Users\GrayA>docker run hello-world
+
+Hello from Docker!
+This message shows that your installation appears to be working correctly.
+
+To generate this message, Docker took the following steps:
+ 1. The Docker client contacted the Docker daemon.
+ 2. The Docker daemon pulled the "hello-world" image from the Docker Hub.
+    (amd64)
+ 3. The Docker daemon created a new container from that image which runs the
+    executable that produces the output you are currently reading.
+ 4. The Docker daemon streamed that output to the Docker client, which sent it
+    to your terminal.
+
+To try something more ambitious, you can run an Ubuntu container with:
+ $ docker run -it ubuntu bash
+
+Share images, automate workflows, and more with a free Docker ID:
+ https://hub.docker.com/
+
+For more examples and ideas, visit:
+ https://docs.docker.com/get-started/
+
+
+C:\Users\GrayA>
+C:\Users\GrayA>
+C:\Users\GrayA>
+C:\Users\GrayA>
+C:\Users\GrayA>
+C:\Users\GrayA>
+C:\Users\GrayA>
+C:\Users\GrayA>
+C:\Users\GrayA>
+C:\Users\GrayA>
+C:\Users\GrayA>
+C:\Users\GrayA>
+C:\Users\GrayA>
+C:\Users\GrayA>
+C:\Users\GrayA>
+C:\Users\GrayA>
+C:\Users\GrayA>
+C:\Users\GrayA>
+C:\Users\GrayA>
+C:\Users\GrayA>
+C:\Users\GrayA>
+2---------------------------------------------------------------------------------------------------------------------------------------------------------
+C:\Users\GrayA>docker ps -a
+CONTAINER ID   IMAGE                    COMMAND                  CREATED              STATUS                          PORTS                NAMES
+eb51c8c36de6   hello-world              "/hello"                 25 seconds ago       Exited (0) 24 seconds ago                            fervent_golick
+1ca23b530bc3   hello-world              "/hello"                 About a minute ago   Exited (0) About a minute ago                        competent_wilbur
+726e736183de   docker/getting-started   "/docker-entrypoint.…"   2 minutes ago        Up 2 minutes                    0.0.0.0:80->80/tcp   stupefied_antonelli
+3---------------------------------------------------------------------------------------------------------------------------------------
+C:\Users\GrayA>
+C:\Users\GrayA>docker rm hello-world
+Error: No such container: hello-world
+
+C:\Users\GrayA>docker rm feverent_golick
+Error: No such container: feverent_golick
+
+C:\Users\GrayA>docker rm fervent_golick
+fervent_golick
+
+C:\Users\GrayA>docker competent_wilbur
+docker: 'competent_wilbur' is not a docker command.
+See 'docker --help'
+
+C:\Users\GrayA>docker rm competent_wilbur
+competent_wilbur
+
+C:\Users\GrayA>docker rm stupefied_antonelli
+Error response from daemon: You cannot remove a running container 726e736183de17bd28887f070ac1c9dda8053d8a772f21fc4e814c596264e792. Stop the container before attempting removal or force remove
+
+C:\Users\GrayA>docker ps -a
+CONTAINER ID   IMAGE                    COMMAND                  CREATED         STATUS         PORTS                NAMES
+726e736183de   docker/getting-started   "/docker-entrypoint.…"   7 minutes ago   Up 7 minutes   0.0.0.0:80->80/tcp   stupefied_antonelli
+C:\Users\GrayA>ps -a
+'ps' is not recognized as an internal or external command,
+operable program or batch file.
+
+C:\Users\GrayA>docker ps -a
+CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
+***********Note to get rid of stupefied_antonelli I quit out of the docker app on the desktop*******************************
+4--------------------------------------------------------------------------------------------------------------------------------------------
+C:\Users\GrayA>docker run --rm hello-world
+
+Hello from Docker!
+This message shows that your installation appears to be working correctly.
+
+To generate this message, Docker took the following steps:
+ 1. The Docker client contacted the Docker daemon.
+ 2. The Docker daemon pulled the "hello-world" image from the Docker Hub.
+    (amd64)
+ 3. The Docker daemon created a new container from that image which runs the
+    executable that produces the output you are currently reading.
+ 4. The Docker daemon streamed that output to the Docker client, which sent it
+    to your terminal.
+
+To try something more ambitious, you can run an Ubuntu container with:
+ $ docker run -it ubuntu bash
+
+Share images, automate workflows, and more with a free Docker ID:
+ https://hub.docker.com/
+For more examples and ideas, visit:
+ https://docs.docker.com/get-started/
+5--------------------------------------------------------------------------------------------------------------------------------------------
+C:\Users\GrayA>docker run -it ubuntu bash
+Unable to find image 'ubuntu:latest' locally
+latest: Pulling from library/ubuntu
+83ee3a23efb7: Pull complete                                                                                                                                             db98fc6f11f0: Pull complete                                                                                                                                             f611acd52c6c: Pull complete                                                                                                                                             Digest: sha256:703218c0465075f4425e58fac086e09e1de5c340b12976ab9eb8ad26615c3715
+Status: Downloaded newer image for ubuntu:latest
+root@de3236d973f2:/# exit
+exit
+
+C:\Users\GrayA>docker run -dt ubuntu bash
+ce486d577655a44365f7ab6b5ae3ab3890dd254b4bec9d357710839a4479c6d0
+
+C:\Users\GrayA>ps
+'ps' is not recognized as an internal or external command,
+operable program or batch file.
+
+C:\Users\GrayA>docker ps
+CONTAINER ID   IMAGE     COMMAND   CREATED          STATUS          PORTS     NAMES
+ce486d577655   ubuntu    "bash"    13 seconds ago   Up 11 seconds             dazzling_easley
+
+C:\Users\GrayA>docker rm -f dazzline_easley
+Error: No such container: dazzline_easley
+
+C:\Users\GrayA>docker rm -f dazzling_easley
+dazzling_easley
+
+C:\Users\GrayA>docker ps -a
+CONTAINER ID   IMAGE     COMMAND   CREATED         STATUS                          PORTS     NAMES
+de3236d973f2   ubuntu    "bash"    2 minutes ago   Exited (0) About a minute ago             determined_hypatia
+
+C:\Users\GrayA>docker rm determined_hypatia
+determined_hypatia
